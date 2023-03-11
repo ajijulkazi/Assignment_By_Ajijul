@@ -14,7 +14,162 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700&family=Raleway:wght@600&family=Roboto:wght@100&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: consolas;
+        }
+        body 
+        {
+            background-image: url("/image/bg.jpg");
+    
+        }
+
+        body h1, h2, button 
+        {
+            font-family: 'Raleway', sans-serif;
+        }
+        h1 
+        {
+            margin-block-start: 0%;
+            margin-block-end: 0%;
+            animation: reveal 3s ease-in   alternate-reverse;
+        }
+
+        h2 
+        {
+            font-size: 104px;
+            margin-block-start: 0%;
+            margin-block-end: 0%;
+            animation: reveal 2.5s ease-in   alternate-reverse;
+        }
+
+        button 
+        {
+            font-weight:bold;
+            font-size: 20px;
+            padding-top: 5px;
+            width: 30%;
+            animation: reveal 1.5s ease-in   alternate-reverse;
+        }
+
+        @keyframes reveal 
+        {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateY(700px);
+            }
+        }
+
+        @keyframes reveal 
+        {
+            from {
+                transform: translateY(700px);
+                
+            }
+            to {
+                transform: translateX(0);
+                
+            }
+        }
+
+        .grid-container 
+        {
+            display: grid;
+            grid-template-columns: auto auto;
+            padding-left: 50px;
+        }
+
+        .grid-container .header-container 
+        {
+            position: relative;
+            margin-top: 200px;
+            padding-left: 80px;
+            gap: 5px;
+        }
+
+        .grid-container .header-container button
+        {
+            padding: 10px;
+            background-color: #00acf1;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            
+        }
+
+        .grid-container .img-container img
+        {
+            position: relative;
+            width: 500px;
+            height: 500px;
+        }
+
+        @keyframes slideInLeft 
+        {
+            from {
+                transform: translateX(600px);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .grid-container .img-container 
+        {
+            animation: slideInLeft 2s ease-in-out 1s normal both;
+        }
+        .circle
+         {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 50%;
+        }
+        .logo
+        {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+        }
+        .text
+        {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: rotateText 5s ease-in-out 1s infinite;
+        }
+        
+        @keyframes rotateText 
+        {
+            0%
+            {
+                transform: rotate(360deg);
+            }
+        }
+        .text span 
+        {
+            position: absolute;
+            left: 50%;
+            font-family: 'Roboto', sans-serif;
+            font-size: 36px;
+            transform-origin: 0 300px;
+            
+        }
+
+    </style>
 </head>
 <body>
     <div class="grid-container">
@@ -28,8 +183,19 @@
         </div>
         
       </div>
-      <div>
-        <h3>React    Node   CSS    Next    Express   Nest   HTML   GSAP   3.JS  SASS</h3>
+      <div class="circle">
+        <div class="logo">
+            <div class="text">
+                <h3>React    Node   CSS    Next    Express   Nest   HTML   GSAP   3.JS  SASS</h3>
+            </div>
+        </div>  
       </div>
+      <script>
+        const text = document.querySelector('.text h3');
+        text.innerHTML = text.innerText.split("").map(
+            (char, i) =>
+            `<span style="transform:rotate(${i * 6.5}deg)">${char}</span>`
+        ).join("")
+      </script>
 </body>
 </html>
